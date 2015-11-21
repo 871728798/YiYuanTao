@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">YiYuanTao</string>
+
+    <string name="home_tab_first_page">首页</string>
+    <string name="home_tab_all_commodity">所有商品</string>
+    <string name="home_tab_new_publish">最新揭晓</string>
+    <string name="home_tab_shopping_cart">购物车</string>
+    <string name="home_tab_mine">个人中心</string>
+</resources>

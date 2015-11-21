@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/home_content_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></android.support.v4.view.ViewPager>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginBottom="2dp"/>
+    <RadioGroup
+        android:id="@+id/home_tab_group"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/home_tab_first_page"
+            style="@style/HomeTabStyle"
+            android:checked="true"
+            android:drawableTop="@drawable/home_tab1_img_select"
+            android:text="@string/home_tab_first_page"/>
+        <RadioButton
+            android:id="@+id/home_tab_all_commodity"
+            style="@style/HomeTabStyle"
+            android:drawableTop="@drawable/home_tab2_img_select"
+            android:text="@string/home_tab_all_commodity"/>
+        <RadioButton
+            android:id="@+id/home_tab_new_publish"
+            style="@style/HomeTabStyle"
+            android:drawableTop="@drawable/home_tab3_img_select"
+            android:text="@string/home_tab_new_publish"/>
+        <RadioButton
+            android:id="@+id/home_tab_shopping_cart"
+            style="@style/HomeTabStyle"
+            android:drawableTop="@drawable/home_tab4_img_select"
+            android:text="@string/home_tab_shopping_cart"/>
+        <RadioButton
+            android:id="@+id/home_tab_mine"
+            style="@style/HomeTabStyle"
+            android:drawableTop="@drawable/home_tab5_img_select"
+            android:text="@string/home_tab_mine"/>
+    </RadioGroup>
+</LinearLayout>

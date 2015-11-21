@@ -1,0 +1,24 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <declare-styleable name="navproperties">
+        <attr name="count" format="integer"/>
+        <attr name="checkedimg" format="reference"/>
+        <attr name="uncheckedimg" format="reference"/>
+    </declare-styleable>
+
+    <style name="HomeTabStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@drawable/home_tab_text_colot_select</item>
+        <item name="android:background">#0fff</item>
+    </style>
+</resources>

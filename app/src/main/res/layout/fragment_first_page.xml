@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -34,11 +35,25 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <android.support.v4.view.ViewPager
-                android:id="@+id/vp_banner"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                />
+                android:layout_height="120dp">
+                <com.qianfeng.yiyuantao.custom.MyViewPager
+                    android:id="@+id/vp_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    />
+                <com.qianfeng.yiyuantao.custom.ImgNavView
+                    android:id="@+id/img_nav"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginBottom="10dp"
+                    app:count="3"
+                    app:checkedimg="@mipmap/page_now"
+                    app:uncheckedimg="@mipmap/page"
+                    />
+            </FrameLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"

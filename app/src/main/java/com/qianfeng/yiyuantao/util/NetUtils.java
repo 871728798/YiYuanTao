@@ -3,8 +3,8 @@ package com.qianfeng.yiyuantao.util;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
-import com.lidroid.xutils.http.callback.RequestCallBack;
-import com.lidroid.xutils.http.client.HttpRequest;import java.lang.String;
+import com.lidroid.xutils.http.client.HttpRequest;
+import java.lang.String;
 
 /**
  * Created by Administrator on 2015/11/15 0015.
@@ -13,12 +13,13 @@ public class NetUtils {
 
     /**
      * 请求网络网络数据
+     *
      * @param requestCallBack 网络数据返回时回调的接口
      * @param url
      */
-    public static void getDataFromNet(final RequestCallBack requestCallBack,String url){
+    public static void getDataFromNet(final RequestCallCack requestCallBack, String url) {
         HttpUtils httpUtils = new HttpUtils();
-        httpUtils.send(HttpRequest.HttpMethod.POST, url, new RequestCallBack<String>() {
+        httpUtils.send(HttpRequest.HttpMethod.GET, url, new com.lidroid.xutils.http.callback.RequestCallBack<String>() {
             @Override
             public void onSuccess(ResponseInfo<String> responseInfo) {
                 requestCallBack.onSuccess(responseInfo);
@@ -31,7 +32,7 @@ public class NetUtils {
         });
     }
 
-    public interface RequestCallCack{
+    public static interface RequestCallCack {
         void onSuccess(ResponseInfo<String> responseInfo);
         void onFailure(HttpException e, String s);
     }

@@ -34,7 +34,25 @@
         />
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="80dp"></RadioGroup>
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+        <RadioButton
+            style="@style/FirstPageMenuStyle"
+            android:drawableTop="@mipmap/icon_tenyuan"
+            android:text="@string/home_page_menu_text1"/>
+        <RadioButton
+            style="@style/FirstPageMenuStyle"
+            android:drawableTop="@mipmap/icon_activity"
+            android:text="@string/home_page_menu_text2"/>
+        <RadioButton
+            style="@style/FirstPageMenuStyle"
+            android:drawableTop="@mipmap/icon_show"
+            android:text="@string/home_page_menu_text3"/>
+        <RadioButton
+            style="@style/FirstPageMenuStyle"
+            android:drawableTop="@mipmap/icon_help"
+            android:text="@string/home_page_menu_text4"/>
+    </RadioGroup>
 
 
 </LinearLayout>

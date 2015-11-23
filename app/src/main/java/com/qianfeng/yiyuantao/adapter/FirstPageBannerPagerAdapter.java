@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ public class FirstPageBannerPagerAdapter extends PagerAdapter{
 
     private List<ImageView> datas;
     public FirstPageBannerPagerAdapter(){
-
+        datas = new ArrayList<>();
     }
 
     public void setDatas(List<ImageView> datas){

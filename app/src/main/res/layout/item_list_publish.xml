@@ -56,6 +56,7 @@
         android:layout_toRightOf="@+id/iv_pic"
         android:text="揭晓时间" />
     <com.qianfeng.yiyuantao.custom.CircleImageView
+        android:id="@+id/iv_user"
         android:layout_alignParentRight="true"
         android:layout_marginTop="50dp"
         android:layout_width="40dp"

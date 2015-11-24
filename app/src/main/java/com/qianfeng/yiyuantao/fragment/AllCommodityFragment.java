@@ -1,13 +1,18 @@
 package com.qianfeng.yiyuantao.fragment;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
+import com.handmark.pulltorefresh.library.ILoadingLayout;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
@@ -45,7 +50,31 @@ public class AllCommodityFragment extends Fragment implements RadioGroup.OnCheck
         listView.setAdapter(adapter);
         rdgroup.setOnCheckedChangeListener(this);
         rdgroup.getChildAt(0).performClick();
+        listView.setMode(PullToRefreshBase.Mode.BOTH);
+        initlv();
+        listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
+            @Override
+            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
+                new FinishRefresh().execute();
+            }
 
+            @Override
+            public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
+                new FinishRefresh().execute();
+            }
+        });
+    }
+    private void initlv() {
+        ILoadingLayout startLabels = listView
+                .getLoadingLayoutProxy(true, false);
+        startLabels.setPullLabel("下拉刷新...");// 刚下拉时，显示的提示
+        startLabels.setRefreshingLabel("正在载入...");// 刷新时
+        startLabels.setReleaseLabel("放开刷新...");// 下来达到一定距离时，显示的提示
+        ILoadingLayout endLabels = listView.getLoadingLayoutProxy(
+                false, true);
+        endLabels.setPullLabel("上拉刷新...");// 刚下拉时，显示的提示
+        endLabels.setRefreshingLabel("正在载入...");// 刷新时
+        endLabels.setReleaseLabel("放开刷新...");// 下来达到一定距离时，显示的提示
     }
 
     /**
@@ -125,4 +154,25 @@ public class AllCommodityFragment extends Fragment implements RadioGroup.OnCheck
     public void onFailure(HttpException e, String s) {
 
     }
+
+    /**
+     * 设置listview刷新的时间，并停止刷新
+     */
+    private class FinishRefresh extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... params) {
+            NetUtils.getDataFromNet(AllCommodityFragment.this, url);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result){
+            listView.onRefreshComplete();
+        }
+    }
+
 }

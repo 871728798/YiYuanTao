@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.qianfeng.yiyuantao.R;
 import com.qianfeng.yiyuantao.bean.PrizeEntity;
@@ -18,12 +19,14 @@ import com.qianfeng.yiyuantao.util.NetUtils;
  */
 public class ReCommendGridViewAdapter extends ABSBaseAdapter2<PrizeEntity>{
 
+    private Context context;
     public ReCommendGridViewAdapter(Context context) {
         super(context, R.layout.item_gridview_recommend);
+        this.context = context;
     }
 
     @Override
-    public void bindDatas(ViewHolder viewHolder, PrizeEntity data, int position) {
+    public void bindDatas(View view, ViewHolder viewHolder, PrizeEntity data) {
         ImageView iv = (ImageView) viewHolder.getView(R.id.iv_id);
         NetUtils.disImageView(data.getThumb_nail(), iv, R.drawable.loading_2, R.drawable.loading_2);
 
@@ -37,10 +40,17 @@ public class ReCommendGridViewAdapter extends ABSBaseAdapter2<PrizeEntity>{
         tv_need.setText(data.getPrice() + "");
         tv_else.setText(data.getCount_else()+"");
 
-        View view = viewHolder.getView(R.id.red_view_id);
+        View red_view = viewHolder.getView(R.id.red_view_id);
         int width = (int) (data.getCount_buyed() * 150 / (float)data.getPrice() + 0.5);
-        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = red_view.getLayoutParams();
         layoutParams.width = width;
-        view.setLayoutParams(layoutParams);
+        red_view.setLayoutParams(layoutParams);
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "点击了GridView的item", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

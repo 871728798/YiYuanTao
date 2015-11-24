@@ -15,4 +15,4 @@
         android:topLeftRadius="@dimen/indicator_corner_radius"
         android:topRightRadius="@dimen/indicator_corner_radius" />
 
-</shape><!-- From: file:/H:/AsAndorid/YiYuanTao/pullRefreshLibrary/src/main/res/drawable/indicator_bg_bottom.xml -->
+</shape><!-- From: file:/E:/YiYuanTao/pullRefreshLibrary/src/main/res/drawable/indicator_bg_bottom.xml -->

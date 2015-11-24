@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ImageView;
 
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
@@ -31,8 +32,9 @@ import java.util.List;
 /**
  * Created by Administrator on 2015/11/21 0021.
  */
-public class FirstPageFragment extends Fragment implements NetUtils.RequestCallCack {
+public class FirstPageFragment extends Fragment implements NetUtils.RequestCallCack, FirstPageNewPublishView.UpdateDatasListener, PullToRefreshBase.OnRefreshListener {
 
+    private PullToRefreshScrollView scrollView;
     private HeadBannerView headBannerView;//头部广告位的自定义组合布局
     private FirstPageNewPublishView firstPageNewPublishView;//首页的最新揭晓的自定义组合布局
     private GridView gv_Recommend;
@@ -51,8 +53,13 @@ public class FirstPageFragment extends Fragment implements NetUtils.RequestCallC
      * @param view
      */
     private void initView(View view) {
+        scrollView = (PullToRefreshScrollView) view.findViewById(R.id.pull_to_refresh_scrollview);
+        scrollView.setOnRefreshListener(this);
+
         headBannerView = (HeadBannerView) view.findViewById(R.id.head_banner);
+
         firstPageNewPublishView = (FirstPageNewPublishView) view.findViewById(R.id.new_publish_view);
+        firstPageNewPublishView.setUpdateDatasListener(this);
 
         gv_Recommend = (GridView) view.findViewById(R.id.gv_recommend);
         adapter = new ReCommendGridViewAdapter(getActivity());
@@ -74,6 +81,7 @@ public class FirstPageFragment extends Fragment implements NetUtils.RequestCallC
         List<ImageView> datas = new ArrayList<>();
         for (int i = 0; i < banner.length; i++){
             ImageView iv = new ImageView(getActivity());
+            iv.setScaleType(ImageView.ScaleType.FIT_XY);
             NetUtils.disImageView(banner[i].getBanner(), iv, R.mipmap.loading_1, R.mipmap.img_cancel);
             datas.add(iv);
         }
@@ -95,8 +103,10 @@ public class FirstPageFragment extends Fragment implements NetUtils.RequestCallC
         firstPageNewPublishView.setDatas(Arrays.asList(lottery));
 
         PrizeEntity[] prize_list = firstPageEntity.getPrize_list();
-        Log.i("TAG", Arrays.asList(prize_list).toString());
+
         adapter.setDatas(Arrays.asList(prize_list));
+
+        scrollView.onRefreshComplete();
     }
     /**
      * 从网络上加载数据失败后回调
@@ -104,5 +114,22 @@ public class FirstPageFragment extends Fragment implements NetUtils.RequestCallC
     @Override
     public void onFailure(HttpException e, String s) {
 
+    }
+
+    /**
+     * 当倒计时结束时，需要更新数据
+     */
+    @Override
+    public void update() {
+        initDatas();
+    }
+
+    /**
+     * 下拉刷新时回调
+     * @param refreshView
+     */
+    @Override
+    public void onRefresh(PullToRefreshBase refreshView) {
+        initDatas();
     }
 }

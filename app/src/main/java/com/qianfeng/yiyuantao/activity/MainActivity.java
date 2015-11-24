@@ -7,7 +7,7 @@ import android.os.Bundle;
 import com.qianfeng.yiyuantao.R;
 
 public class MainActivity extends ActionBarActivity {
-//-------------
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

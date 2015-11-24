@@ -39,10 +39,32 @@ public class NewPublishEntity {
          "time": "2015-11-23 14:30:26:424"
      },*/
     private int count; //本期夺宝人次
+    private int remain_sec;
+
+    public int getRemain_sec() {
+        return remain_sec;
+    }
+
+    public void setRemain_sec(int remain_sec) {
+        this.remain_sec = remain_sec;
+    }
+
     private int luck_num;//幸运号码
     private int remain_sec;
     private Prize_detail prize_detail;
     private User user;
+
+    @Override
+    public String toString() {
+        return "NewPublishEntity{" +
+                "count=" + count +
+                ", remain_sec=" + remain_sec +
+                ", luck_num=" + luck_num +
+                ", type=" + type +
+                ", prize_detail=" + prize_detail +
+                ", user=" + user +
+                '}';
+    }
 
     public NewPublishEntity() {
     }
@@ -88,6 +110,7 @@ public class NewPublishEntity {
     }
 
 
+<<<<<<< Updated upstream
     @Override
     public String toString() {
         return "NewPublishEntity{" +
@@ -97,13 +120,26 @@ public class NewPublishEntity {
                 ", prize_detail=" + prize_detail +
                 '}';
     }
+=======
+
+>>>>>>> Stashed changes
 
    public class Prize_detail {
         public String thumb_nail;//商品图片
         public int price;//商品价格
         public String title;//商品名称
 
+<<<<<<< Updated upstream
         public Prize_detail() {
+=======
+        @Override
+        public String toString() {
+            return "Prize_detail{" +
+                    "thumb_nail='" + thumb_nail + '\'' +
+                    ", price=" + price +
+                    ", title='" + title + '\'' +
+                    '}';
+>>>>>>> Stashed changes
         }
 
         public String getThumb_nail() {
@@ -131,12 +167,18 @@ public class NewPublishEntity {
         }
     }
 
+<<<<<<< Updated upstream
 
     public class User {
+=======
+   public static class User {
+        public int id;
+>>>>>>> Stashed changes
         public String ip;
         public String nickname;//用户昵称
         public String avatar;//用户头像
 
+<<<<<<< Updated upstream
         public String getIp() {
             return ip;
         }
@@ -146,6 +188,35 @@ public class NewPublishEntity {
         }
 
         public String getNickname() {
+=======
+       @Override
+       public String toString() {
+           return "User{" +
+                   "id=" + id +
+                   ", ip='" + ip + '\'' +
+                   ", nickname='" + nickname + '\'' +
+                   ", avatar='" + avatar + '\'' +
+                   '}';
+       }
+
+       public int getId() {
+           return id;
+       }
+
+       public void setId(int id) {
+           this.id = id;
+       }
+
+       public String getIp() {
+           return ip;
+       }
+
+       public void setIp(String ip) {
+           this.ip = ip;
+       }
+
+       public String getNickname() {
+>>>>>>> Stashed changes
             return nickname;
         }
 

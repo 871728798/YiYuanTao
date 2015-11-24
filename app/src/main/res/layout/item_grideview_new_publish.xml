@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="120dp"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp">
+    <ImageView
+        android:id="@+id/iv_id"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+
+        />
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_id"
+        android:singleLine="true"
+        android:layout_alignRight="@+id/iv_id"
+        android:textSize="12sp"
+        android:text="sss"/>
+    <TextView
+        android:id="@+id/tv_win"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_bg_8"
+        android:layout_below="@+id/tv_title"
+        android:layout_marginTop="5dp"
+        android:textColor="#fff"
+        android:visibility="gone"
+        android:textSize="12sp"
+        android:text="中奖"
+        />
+    <TextView
+        android:id="@+id/tv_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:singleLine="true"
+        android:layout_toRightOf="@+id/tv_win"
+        android:layout_below="@+id/tv_title"
+        android:layout_alignRight="@+id/iv_id"
+        android:layout_margin="5dp"
+        android:textSize="12sp"
+        android:visibility="gone"
+        android:text="Like su"/>
+    <TextView
+        android:id="@+id/tv_loading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:background="@drawable/btn_bg_9"
+        android:layout_below="@+id/tv_title"
+        android:layout_margin="5dp"
+        android:textColor="#fff"
+        android:layout_alignRight="@+id/iv_id"
+        android:textSize="12sp"
+        android:text="揭晓中.."/>
+
+
+</RelativeLayout>

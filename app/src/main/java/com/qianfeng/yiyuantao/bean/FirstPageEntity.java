@@ -6,14 +6,17 @@ import java.util.Arrays;
  * Created by Administrator on 2015/11/23 0023.
  */
 public class FirstPageEntity {
-    private PrizeEntity[] prize_list;
-    private Banner[] banner;
+    private PrizeEntity[] prize_list;//人气推荐(商品)的数据
+    private Banner[] banner; //首页顶部广告位的数据
+    private NewPublishEntity[] lottery;
+
 
     @Override
     public String toString() {
         return "FirstPageEntity{" +
                 "prize_list=" + Arrays.toString(prize_list) +
                 ", banner=" + Arrays.toString(banner) +
+                ", lottery=" + Arrays.toString(lottery) +
                 '}';
     }
 
@@ -42,19 +45,27 @@ public class FirstPageEntity {
         this.banner = banner;
     }
 
+    public NewPublishEntity[] getLottery() {
+        return lottery;
+    }
+
+    public void setLottery(NewPublishEntity[] lottery) {
+        this.lottery = lottery;
+    }
+
     public static class Banner{
 
-        private int prize_id;
+        private int prize_id;//商品id
         private int goods_id;
         private boolean showed;
         private String created;
-        private String url;
-        private String banner;
-        private String title;
+        private String url; //html界面的url
+        private String banner;//图片的url
+        private String title;//标题
         private String modified;
         private int priority;
         private String platform;
-        private String type;
+        private String type;//商品类型
         private int id;
 
         @Override

@@ -1,6 +1,5 @@
 package com.qianfeng.yiyuantao.bean;
 
-import android.content.Context;
 
 /**
  * Created by Lee on 2015/11/23.
@@ -41,16 +40,30 @@ public class NewPublishEntity {
      },*/
     private int count; //本期夺宝人次
     private int luck_num;//幸运号码
-    private int type = 1;
+    private int remain_sec;
     private Prize_detail prize_detail;
     private User user;
+
+    @Override
+    public String toString() {
+        return "NewPublishEntity{" +
+                "count=" + count +
+                ", remain_sec=" + remain_sec +
+                ", luck_num=" + luck_num +
+                ", prize_detail=" + prize_detail +
+                ", user=" + user +
+                '}';
+    }
 
     public NewPublishEntity() {
     }
 
-    public NewPublishEntity(int type) {
-        this.type = type;
+    public int getRemain_sec() {
+        return remain_sec;
+    }
 
+    public void setRemain_sec(int remain_sec) {
+        this.remain_sec = remain_sec;
     }
 
     public Prize_detail getPrize_detail() {
@@ -85,24 +98,8 @@ public class NewPublishEntity {
         this.luck_num = luck_num;
     }
 
-    public int getType() {
-        return type;
-    }
 
-    public void setType(int type) {
-        this.type = type;
-    }
-
-    @Override
-    public String toString() {
-        return "NewPublishEntity{" +
-                "count=" + count +
-                ", luck_num=" + luck_num +
-                ", type=" + type +
-                '}';
-    }
-
-    public static class Prize_detail {
+   public class Prize_detail {
         public String thumb_nail;//商品图片
         public int price;//商品价格
         public String title;//商品名称
@@ -132,20 +129,32 @@ public class NewPublishEntity {
         }
     }
 
+
    public static class User {
-        public int ip;
+        public int id;
+        public String ip;
         public String nickname;//用户昵称
         public String avatar;//用户头像
 
-        public int getIp() {
-            return ip;
-        }
 
-        public void setIp(int ip) {
-            this.ip = ip;
-        }
 
-        public String getNickname() {
+       public int getId() {
+           return id;
+       }
+
+       public void setId(int id) {
+           this.id = id;
+       }
+
+       public String getIp() {
+           return ip;
+       }
+
+       public void setIp(String ip) {
+           this.ip = ip;
+       }
+
+       public String getNickname() {
             return nickname;
         }
 
@@ -161,5 +170,4 @@ public class NewPublishEntity {
             this.avatar = avatar;
         }
     }
-
 }

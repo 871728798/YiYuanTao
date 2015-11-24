@@ -8,8 +8,6 @@ import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.client.HttpRequest;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.qianfeng.yiyuantao.R;
 import com.qianfeng.yiyuantao.app.MyApp;
 
 import java.lang.String;

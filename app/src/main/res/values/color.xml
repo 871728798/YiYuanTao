@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="top_bg_color">#ce0f31</color>
+    <color name="tv_rl_commodity_color">#fff</color>
+    <color name="rb_check_commodity_color">#b9b2b2</color>
 
 </resources>

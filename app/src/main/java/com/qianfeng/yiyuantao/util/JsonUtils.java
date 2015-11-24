@@ -5,6 +5,7 @@ import android.util.Log;
 import com.alibaba.fastjson.JSON;
 import com.qianfeng.yiyuantao.bean.FirstPageEntity;
 import com.qianfeng.yiyuantao.bean.NewPublishEntity;
+import com.qianfeng.yiyuantao.bean.PrizeEntity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -68,4 +69,31 @@ public class JsonUtils {
         }
         return list;
     }
+
+    /**
+     * 解析全部商品页
+     */
+    public static List<PrizeEntity> parseAllCommodity(String data){
+        List<PrizeEntity> list = new ArrayList<>();
+        try {
+            JSONObject obj1 = new JSONObject(data);
+            JSONArray arr1 = obj1.getJSONArray("data");
+            list = JSON.parseArray(arr1.toString(),PrizeEntity.class);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return  list;
+    }
 }
+/**
+ * for (int i = 0;i<arr1.length();i++){
+ entity = new PrizeEntity();
+ JSONObject obj2 = arr1.getJSONObject(i);
+ entity.setCount_buyed((Integer) obj2.get("count_buyed"));
+ entity.setCategory_id((Integer) obj2.get("category_id"));
+ entity.setDescription((String) obj2.get("description"));
+ entity.setGoods_id((Integer) obj2.get("goods_id"));
+ entity.setLevel((Integer) obj2.get("level"));
+ entity.setPrice((Integer) obj2.get("price"));
+ }
+ */

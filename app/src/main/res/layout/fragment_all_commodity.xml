@@ -1,11 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="AllCommodity"
-        android:id="@+id/textView2" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rl_commodity_all_height"
+        android:background="@color/top_bg_color"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_tab_all_commodity"
+            android:textColor="@color/tv_rl_commodity_color"
+            android:textSize="@dimen/tv_commodity_all_size"/>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <ScrollView
+            android:layout_width="100dp"
+            android:layout_height="match_parent">
+            <RadioGroup
+                android:id="@+id/rg_all_commodity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <RadioButton
+                   android:id="@+id/rb1_all_commodity"
+                   style="@style/rb_all_commodity"
+                   android:text="@string/home_tab_all_commodity"/>
+                <RadioButton
+                    android:id="@+id/rb2_all_commodity"
+                    style="@style/rb_all_commodity"
+                    android:text="@string/home_page_menu_text1"/>
+                <RadioButton
+                    android:id="@+id/rb3_all_commodity"
+                    style="@style/rb_all_commodity"
+                    android:text="@string/all_commodity_text3"/>
+                <RadioButton
+                    android:id="@+id/rb4_all_commodity"
+                    style="@style/rb_all_commodity"
+                    android:text="@string/all_commodity_text4"/>
+                <RadioButton
+                    android:id="@+id/rb5_all_commodity"
+                    style="@style/rb_all_commodity"
+                    android:text="@string/all_commodity_text5"/>
+                <RadioButton
+                    android:id="@+id/rb6_all_commodity"
+                    style="@style/rb_all_commodity"
+                    android:text="@string/all_commodity_text6"/>
+                <RadioButton
+                    android:id="@+id/rb7_all_commodity"
+                    style="@style/rb_all_commodity"
+                    android:text="@string/all_commodity_text7"/>
+                <RadioButton
+                    android:id="@+id/rb8_all_commodity"
+                    style="@style/rb_all_commodity"
+                    android:text="@string/all_commodity_text8"/>
+                <RadioButton
+                    android:id="@+id/rb9_all_commodity"
+                    style="@style/rb_all_commodity"
+                    android:text="@string/all_commodity_text9"/>
+                <RadioButton
+                    android:id="@+id/rb10_all_commodity"
+                    style="@style/rb_all_commodity"
+                    android:text="@string/all_commodity_text10"/>
+                <RadioButton
+                    android:id="@+id/rb11_all_commodity"
+                    style="@style/rb_all_commodity"
+                    android:text="@string/all_commodity_text11"/>
+                <RadioButton
+                    android:id="@+id/rb12_all_commodity"
+                    style="@style/rb_all_commodity"
+                    android:text="@string/all_commodity_text12"/>
+                <RadioButton
+                    android:id="@+id/rb13_all_commodity"
+                    style="@style/rb_all_commodity"
+                    android:text="@string/all_commodity_text13"/>
+
+
+            </RadioGroup>
+
+        </ScrollView>
+        <TextView
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:background="@color/rb_check_commodity_color">
+        </TextView>
+        <com.handmark.pulltorefresh.library.PullToRefreshListView
+            xmlns:ptr="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/all_commodity_putorefreshlv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            ptr:ptrAnimationStyle="flip"
+            ptr:ptrDrawable="@mipmap/commodityarrow"/>
+
+
+    </LinearLayout>
 </LinearLayout>

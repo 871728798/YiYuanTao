@@ -11,4 +11,15 @@
     <string name="home_page_menu_text2">最新活动</string>
     <string name="home_page_menu_text3">晒单</string>
     <string name="home_page_menu_text4">常见问题</string>
+    <string name="all_commodity_text3">手机平板</string>
+    <string name="all_commodity_text4">电脑办公</string>
+    <string name="all_commodity_text5">影音数码</string>
+    <string name="all_commodity_text6">零食饮料</string>
+    <string name="all_commodity_text7">男性用品</string>
+    <string name="all_commodity_text8">女性用品</string>
+    <string name="all_commodity_text9">家用电器</string>
+    <string name="all_commodity_text10">儿童玩具</string>
+    <string name="all_commodity_text11">虚拟产品</string>
+    <string name="all_commodity_text12">户外建身</string>
+    <string name="all_commodity_text13">其他宝贝</string>
 </resources>

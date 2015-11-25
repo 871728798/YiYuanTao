@@ -1,9 +1,7 @@
 package com.qianfeng.yiyuantao.fragment;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,10 +14,8 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
-import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.qianfeng.yiyuantao.R;
-import com.qianfeng.yiyuantao.adapter.ABSBaseAdapter;
-import com.qianfeng.yiyuantao.adapter.AllCommPlAdapter;
+import com.qianfeng.yiyuantao.adapter.AllCommPluAdapter;
 import com.qianfeng.yiyuantao.bean.PrizeEntity;
 import com.qianfeng.yiyuantao.util.Constants;
 import com.qianfeng.yiyuantao.util.JsonUtils;
@@ -34,7 +30,7 @@ public class AllCommodityFragment extends Fragment implements RadioGroup.OnCheck
     private PullToRefreshListView listView;
     private RadioGroup rdgroup;
     private String url;
-    private AllCommPlAdapter adapter;
+    private AllCommPluAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,7 +42,7 @@ public class AllCommodityFragment extends Fragment implements RadioGroup.OnCheck
     private void initView(View view) {
         rdgroup = (RadioGroup) view.findViewById(R.id.rg_all_commodity);
         listView = (PullToRefreshListView) view.findViewById(R.id.all_commodity_putorefreshlv);
-        adapter = new AllCommPlAdapter(getActivity());
+        adapter = new AllCommPluAdapter(getActivity());
         listView.setAdapter(adapter);
         rdgroup.setOnCheckedChangeListener(this);
         rdgroup.getChildAt(0).performClick();
@@ -55,12 +51,12 @@ public class AllCommodityFragment extends Fragment implements RadioGroup.OnCheck
         listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
             @Override
             public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
-                new FinishRefresh().execute();
+                NetUtils.getDataFromNet(AllCommodityFragment.this, url);
             }
 
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
-                new FinishRefresh().execute();
+                NetUtils.getDataFromNet(AllCommodityFragment.this, url);
             }
         });
     }
@@ -148,31 +144,13 @@ public class AllCommodityFragment extends Fragment implements RadioGroup.OnCheck
     public void onSuccess(ResponseInfo<String> responseInfo) {
         List<PrizeEntity> entities = JsonUtils.parseAllCommodity(responseInfo.result);
         adapter.setDatas(entities);
+        listView.onRefreshComplete();
     }
 
     @Override
     public void onFailure(HttpException e, String s) {
-
-    }
-
-    /**
-     * 设置listview刷新的时间，并停止刷新
-     */
-    private class FinishRefresh extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected Void doInBackground(Void... params) {
-            NetUtils.getDataFromNet(AllCommodityFragment.this, url);
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result){
-            listView.onRefreshComplete();
-        }
+        listView.onRefreshComplete();
+        Toast.makeText(getActivity(),"刷新失败。。。",Toast.LENGTH_SHORT).show();
     }
 
 }

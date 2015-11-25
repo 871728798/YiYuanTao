@@ -67,6 +67,7 @@
 
            </LinearLayout>
            <ImageView
+               android:id="@+id/all_ico_shopping_cart_2_1"
                android:layout_width="0dp"
                android:layout_height="wrap_content"
                android:layout_weight="1"

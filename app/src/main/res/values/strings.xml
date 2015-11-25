@@ -22,4 +22,10 @@
     <string name="all_commodity_text11">虚拟产品</string>
     <string name="all_commodity_text12">户外建身</string>
     <string name="all_commodity_text13">其他宝贝</string>
+    <string name="text_mine">个人中心</string>
+    <string name="welcome_text">您好,欢迎您来到一元淘</string>
+    <string name="login_text">立即登陆/注册</string>
+    <string name="shopping_cart">购物车</string>
+    <string name="shopping_cart_null">您的购物车空空如也</string>
+    <string name="shopping">马上夺宝</string>
 </resources>

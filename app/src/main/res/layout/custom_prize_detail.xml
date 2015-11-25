@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!---->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_id"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/btn_bg_8"
+            android:text="已揭晓"
+            android:textColor="#fff"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/peroid_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_toRightOf="@+id/btn_tv"
+            android:text="第51期"
+
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/peroid_tv"
+            android:text="title"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+    <FrameLayout
+        android:layout_margin="8dp"
+        android:background="@drawable/custom_fl"
+        android:id="@+id/fl_prize_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_id">
+
+        <FrameLayout
+            android:id="@+id/fl_prize2_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="#999696"
+            >
+
+            <RelativeLayout
+                android:id="@+id/rl2_id"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_below="@id/rl_id">
+
+                <ImageView
+                    android:id="@+id/iv_user"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/custom_iv"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/user" />
+
+                <TextView
+                    android:id="@+id/tv_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_toRightOf="@+id/iv_user"
+                    android:text="获奖者：" />
+
+                <TextView
+                    android:id="@+id/tv_userip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_user"
+                    android:layout_margin="2dp"
+                    android:layout_toRightOf="@+id/iv_user"
+                    android:text="用户IP：" />
+
+                <TextView
+                    android:id="@+id/tv_canyu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_userip"
+                    android:layout_margin="2dp"
+                    android:layout_toRightOf="@+id/iv_user"
+                    android:text="本期参与：" />
+
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_canyu"
+                    android:layout_margin="2dp"
+                    android:layout_toRightOf="@+id/iv_user"
+                    android:text="揭晓时间：" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/tv_time"
+                    android:background="#afadad">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="5dp"
+                        android:text="幸运号："
+                        android:textColor="#f22424" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/custom_iv"
+                        android:gravity="center"
+                        android:text="查看计算详情"
+                        android:textColor="#f22424" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+        </FrameLayout>
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ico_bingo_user"/>
+
+    </FrameLayout>
+
+    <RelativeLayout
+
+        android:id="@+id/rl3_id"
+        android:layout_below="@+id/fl_prize_id"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/iv_ico1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ico_show_prize_share"/>
+        <TextView
+            android:id="@+id/tv_shaidan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:layout_toRightOf="@+id/iv_ico1"
+            android:text="晒单分享"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:layout_toRightOf="@+id/tv_shaidan"
+            android:textColor="#f22424"
+            android:text="(0)"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/btn_right_on_pressed"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:background="@drawable/relativelayout_shape"
+        android:id="@+id/rl4_id"
+        android:layout_below="@+id/rl3_id"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/iv_ico2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ico_prize_lottery"/>
+        <TextView
+            android:id="@+id/tv_wangqi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:layout_toRightOf="@+id/iv_ico2"
+            android:text="往期揭晓"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/btn_right_on_pressed"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_below="@+id/rl4_id"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:id="@+id/iv_ico3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ico_buy_logs"/>
+        <TextView
+            android:id="@+id/tv_benqi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:layout_toRightOf="@+id/iv_ico3"
+            android:text="本期参与"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:layout_toRightOf="@+id/tv_benqi"
+            android:textColor="#8f8c8c"
+            android:text="(time)"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>

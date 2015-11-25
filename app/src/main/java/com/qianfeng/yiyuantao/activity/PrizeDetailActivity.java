@@ -11,6 +11,7 @@ import android.widget.ListView;
 
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.qianfeng.yiyuantao.R;
+import com.qianfeng.yiyuantao.adapter.ABSBaseAdapter;
 import com.qianfeng.yiyuantao.custom.PrizeDetailView;
 import com.qianfeng.yiyuantao.fragment.ShoppingCartFragment;
 
@@ -20,7 +21,7 @@ import com.qianfeng.yiyuantao.fragment.ShoppingCartFragment;
 public class PrizeDetailActivity extends Activity implements View.OnClickListener{
     private ImageView iv_back,iv_buycar;
     private PrizeDetailView prizeDetailView;
-    private ListView prize_lv;
+    private PullToRefreshListView prize_lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,15 +32,21 @@ public class PrizeDetailActivity extends Activity implements View.OnClickListene
     }
 
     private void init() {
-        prize_lv = (ListView) findViewById(R.id.prize_lv);
+        prize_lv = (PullToRefreshListView) findViewById(R.id.prize_lv);
         iv_back = (ImageView) findViewById(R.id.iv_back);
         iv_buycar = (ImageView) findViewById(R.id.iv_buycar);
         iv_back.setOnClickListener(this);
         iv_buycar.setOnClickListener(this);
         prizeDetailView = new PrizeDetailView(PrizeDetailActivity.this);
 
-        prize_lv.addHeaderView(prizeDetailView);
+        prize_lv.getRefreshableView().addHeaderView(prizeDetailView);
+        ABSBaseAdapter<String> A = new ABSBaseAdapter<String>(PrizeDetailActivity.this,R.layout.custom_prize_detail) {
+            @Override
+            public void bindDatas(ViewHolder viewHolder, String data, int position) {
 
+            }
+        };
+        prize_lv.setAdapter(A);
 
 
 

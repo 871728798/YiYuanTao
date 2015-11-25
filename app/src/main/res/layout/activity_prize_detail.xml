@@ -35,13 +35,16 @@
             android:src="@drawable/ico_shopping_cart_3" />
     </RelativeLayout>
 
-    <ListView
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
         android:id="@+id/prize_lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/prizehead_rl">
+        android:layout_below="@+id/prizehead_rl"
+        ptr:ptrDrawable="@drawable/arrow"
+        ptr:ptrAnimationStyle="flip">
 
-    </ListView>
+    </com.handmark.pulltorefresh.library.PullToRefreshListView>
 
 
 </RelativeLayout>

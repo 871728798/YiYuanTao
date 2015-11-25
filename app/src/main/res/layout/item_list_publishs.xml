@@ -51,7 +51,7 @@
         android:text="揭晓倒计时" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="2dp"
         android:layout_below="@+id/iv_pic"
         android:layout_marginTop="20dp"
         android:background="@drawable/bg_tab_bottom">

@@ -11,17 +11,17 @@ public class PrizeEntity {
     private String description;
     private int goods_id;
     private int level;
-    private int price;
-    private String created;
+    private int price;//价格
+    private String created;//本期参与的开始时间
     private String detail;
-    private int prize_id;
-    private int peroid;
-    private String thumb_home;
-    private String thumb_slide;
-    private String title;
+    private int prize_id;//奖品ID
+    private int peroid;//第几期的期数
+    private String thumb_home;//商品大图
+    private String thumb_slide;//商品详情页广告位
+    private String title;//商品名字
     private int count_else;
     private int price_tag;
-    private String thumb_nail;
+    private String thumb_nail;//商品小图
 
     @Override
     public String toString() {

@@ -1,6 +1,10 @@
 package com.qianfeng.yiyuantao.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -34,10 +38,18 @@ public  class NewPublishAdapter extends ABSBaseAdapter3<NewPublishEntity>{
            TextView tv_winner = (TextView) viewHolder.getView(R.id.tv_winner);
             TextView tv_price = (TextView) viewHolder.getView(R.id.tv_price);
             TextView tv_count = (TextView) viewHolder.getView(R.id.tv_count);
+            TextView tv_time = (TextView) viewHolder.getView(R.id.tv_time);
             tv_title.setText(data.getPrize_detail().getTitle());
             tv_price.setText("价格:￥" + data.getPrize_detail().getPrice());
+
             tv_count.setText("本期夺宝:" +data.getCount() + "人次");
-           tv_winner.setText("获奖者:" + data.getUser().getNickname());
+            //把字体设置为红色
+            String tvcount = data.getCount() + "";
+            Spannable spannable = new SpannableString(tv_count.getText());
+            spannable.setSpan(new ForegroundColorSpan(Color.RED), 5, tvcount.length() + 5, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            tv_count.setText(spannable);
+            tv_winner.setText("获奖者:" + data.getUser().getNickname());
+            tv_time.setText("揭晓时间：" + data.getTime());
         }else{
             ImageView iv_pic = (ImageView) viewHolder.getView(R.id.iv_pic);
             NetUtils.disImageView(data.getPrize_detail().getThumb_nail(),iv_pic,R.drawable.loading_2,R.drawable.loading_2);

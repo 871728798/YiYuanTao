@@ -40,20 +40,37 @@ public class NewPublishEntity {
      },*/
     private int count; //本期夺宝人次
     private int luck_num;//幸运号码
-    private int remain_sec;
-    private Prize_detail prize_detail;
-    private User user;
+    private int remain_sec;//倒计时的时间
+    private int prize_id;
+    private int user_id;
+    private String time;
+    private PrizeEntity prize_detail;
+    private UserEntity user;
 
-    @Override
-    public String toString() {
-        return "NewPublishEntity{" +
-                "count=" + count +
-                ", remain_sec=" + remain_sec +
-                ", luck_num=" + luck_num +
-                ", prize_detail=" + prize_detail +
-                ", user=" + user +
-                '}';
+    public int getPrize_id() {
+        return prize_id;
     }
+
+    public void setPrize_id(int prize_id) {
+        this.prize_id = prize_id;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
 
     public NewPublishEntity() {
     }
@@ -66,19 +83,19 @@ public class NewPublishEntity {
         this.remain_sec = remain_sec;
     }
 
-    public Prize_detail getPrize_detail() {
+    public PrizeEntity getPrize_detail() {
         return prize_detail;
     }
 
-    public void setPrize_detail(Prize_detail prize_detail) {
+    public void setPrize_detail(PrizeEntity prize_detail) {
         this.prize_detail = prize_detail;
     }
 
-    public User getUser() {
+    public UserEntity getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserEntity user) {
         this.user = user;
     }
 
@@ -98,76 +115,16 @@ public class NewPublishEntity {
         this.luck_num = luck_num;
     }
 
-
-   public class Prize_detail {
-        public String thumb_nail;//商品图片
-        public int price;//商品价格
-        public String title;//商品名称
-
-        public String getThumb_nail() {
-            return thumb_nail;
-        }
-
-        public void setThumb_nail(String thumb_nail) {
-            this.thumb_nail = thumb_nail;
-        }
-
-        public int getPrice() {
-            return price;
-        }
-
-        public void setPrice(int price) {
-            this.price = price;
-        }
-
-        public String getTitle() {
-            return title;
-        }
-
-        public void setTitle(String title) {
-            this.title = title;
-        }
+    @Override
+    public String toString() {
+        return "NewPublishEntity{" +
+                "count=" + count +
+                ", remain_sec=" + remain_sec +
+                ", luck_num=" + luck_num +
+                ", prize_detail=" + prize_detail +
+                ", user=" + user +
+                '}';
     }
 
 
-   public static class User {
-        public int id;
-        public String ip;
-        public String nickname;//用户昵称
-        public String avatar;//用户头像
-
-
-
-       public int getId() {
-           return id;
-       }
-
-       public void setId(int id) {
-           this.id = id;
-       }
-
-       public String getIp() {
-           return ip;
-       }
-
-       public void setIp(String ip) {
-           this.ip = ip;
-       }
-
-       public String getNickname() {
-            return nickname;
-        }
-
-        public void setNickname(String nickname) {
-            this.nickname = nickname;
-        }
-
-        public String getAvatar() {
-            return avatar;
-        }
-
-        public void setAvatar(String avatar) {
-            this.avatar = avatar;
-        }
-    }
 }

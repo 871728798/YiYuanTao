@@ -3,7 +3,9 @@ package com.qianfeng.yiyuantao.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -18,7 +20,8 @@ import com.qianfeng.yiyuantao.fragment.ShoppingCartFragment;
 public class PrizeDetailActivity extends Activity implements View.OnClickListener{
     private ImageView iv_back,iv_buycar;
     private PrizeDetailView prizeDetailView;
-    private PullToRefreshListView prize_lv;
+    private ListView prize_lv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,13 +31,16 @@ public class PrizeDetailActivity extends Activity implements View.OnClickListene
     }
 
     private void init() {
-        prize_lv = (PullToRefreshListView) findViewById(R.id.prize_lv);
+        prize_lv = (ListView) findViewById(R.id.prize_lv);
         iv_back = (ImageView) findViewById(R.id.iv_back);
         iv_buycar = (ImageView) findViewById(R.id.iv_buycar);
         iv_back.setOnClickListener(this);
         iv_buycar.setOnClickListener(this);
         prizeDetailView = new PrizeDetailView(PrizeDetailActivity.this);
-        prize_lv.getRefreshableView().addHeaderView(prizeDetailView);
+
+        prize_lv.addHeaderView(prizeDetailView);
+
+
 
 
 

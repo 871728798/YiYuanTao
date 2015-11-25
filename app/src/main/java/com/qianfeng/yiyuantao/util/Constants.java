@@ -67,6 +67,12 @@ public interface Constants {
          * ALL_COMMODITY其他宝贝
          */
         String ALL_COMMODITY_NUM13 = "http://api.zhuquzhou.com/prize/prize_list?category_id=8&page_size=20&page_no=1&android_id=b7106f9de9c59ddb&platform=android&v=1.1.1&device_name=nox&s=5708&nettype=wifi&n=yyt_android&app_version=11&sim=false&device_id=352284040537676&mac=28:D2:44:47:0D:10&os_version=4.4.2&";
+
+        /**
+         * 首页的搜索:
+         *参数：keyword=?
+         */
+       String SEARCH_URL = "http://api.zhuquzhou.com/prize/prize_search?keyword=%s&page_size=20&page_no=1&android_id=657e6c60d04803fc&platform=android&v=1.1.1&device_name=nox&s=5708&nettype=wifi&n=yyt_android&app_version=11&sim=false&device_id=352284041624861&mac=3C:97:0E:6F:41:30&os_version=4.4.2&";
     }
 
     interface KEY {

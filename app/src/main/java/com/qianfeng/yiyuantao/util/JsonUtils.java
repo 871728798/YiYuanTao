@@ -84,6 +84,25 @@ public class JsonUtils {
         }
         return  list;
     }
+
+    /**
+     * 解析搜索结果
+     * @param json
+     */
+    public static List<PrizeEntity> parseSearchResult(String json) {
+        try {
+            JSONObject object = new JSONObject(json);
+            int code = object.getInt("code");
+            if (code == 0){
+                JSONArray array = object.getJSONArray("data");
+                List<PrizeEntity> datas = JSON.parseArray(array.toString(), PrizeEntity.class);
+                return datas;
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
 /**
  * for (int i = 0;i<arr1.length();i++){

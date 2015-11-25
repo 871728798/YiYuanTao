@@ -69,12 +69,12 @@ public abstract class ABSBaseAdapter2<T> extends BaseAdapter{
         }else{
             viewHolder = (ViewHolder) view.getTag();
         }
-        bindDatas(viewHolder, datas.get(position), position);
+        bindDatas(view, viewHolder, datas.get(position));
 
         return view;
     }
 
-    public abstract void bindDatas(ViewHolder viewHolder, T data, int position);
+    public abstract void bindDatas(View view, ViewHolder viewHolder, T data);
 
     public class ViewHolder{
         View layoutView;
@@ -93,7 +93,6 @@ public abstract class ABSBaseAdapter2<T> extends BaseAdapter{
                 mapCache.put(id, view);
             }
             return  view;
-
         }
     }
 }

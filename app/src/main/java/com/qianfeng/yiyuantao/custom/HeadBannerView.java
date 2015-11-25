@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class HeadBannerView extends FrameLayout implements ViewPager.OnPageChangeListener {
 
-    private ViewPager viewPager;
+    private MyViewPager viewPager;
     private ImgNavView inv;
     private FirstPageBannerPagerAdapter adapter;
 
@@ -30,7 +30,7 @@ public class HeadBannerView extends FrameLayout implements ViewPager.OnPageChang
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.custom_banner_layout, this, true);
-        viewPager = (ViewPager) findViewById(R.id.vp_banner);
+        viewPager = (MyViewPager) findViewById(R.id.vp_banner);
         adapter = new FirstPageBannerPagerAdapter();
 
         viewPager.setAdapter(adapter);

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_id"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:layout_margin="10dp"/>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            />
+        <FrameLayout
+            android:id="@+id/fram_id"
+            android:layout_width="150dp"
+            android:layout_height="8dp"
+
+
+            android:layout_marginTop="10dp">
+            <View
+                android:id="@+id/view_id"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="#aa979191"/>
+            <View
+                android:id="@+id/red_view_id"
+                android:layout_width="50dp"
+                android:layout_height="8dp"
+                android:background="#f00"/>
+        </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="10sp"
+                android:text="已参与："/>
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="10sp"
+                android:textColor="#5b8ad6"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="10sp"
+                android:text="剩余："/>
+            <TextView
+                android:id="@+id/tv_count_else"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="10sp"
+                android:textColor="#5b8ad6"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:background="#66978c8c"/>
+    <TextView
+        android:id="@+id/tv_add_in_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:padding="5dp"
+        android:layout_margin="10dp"
+        android:textColor="#f00"
+        android:background="@drawable/app_btn_2_1"
+        android:text="@string/add_in_cart"/>
+
+</LinearLayout>

@@ -1,5 +1,6 @@
 package com.qianfeng.yiyuantao.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -14,6 +15,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.qianfeng.yiyuantao.R;
+import com.qianfeng.yiyuantao.activity.SearchActivity;
 import com.qianfeng.yiyuantao.adapter.ReCommendGridViewAdapter;
 import com.qianfeng.yiyuantao.app.MyApp;
 import com.qianfeng.yiyuantao.bean.FirstPageEntity;
@@ -32,13 +34,14 @@ import java.util.List;
 /**
  * Created by Administrator on 2015/11/21 0021.
  */
-public class FirstPageFragment extends Fragment implements NetUtils.RequestCallCack, FirstPageNewPublishView.UpdateDatasListener, PullToRefreshBase.OnRefreshListener {
+public class FirstPageFragment extends Fragment implements NetUtils.RequestCallCack, FirstPageNewPublishView.UpdateDatasListener, PullToRefreshBase.OnRefreshListener, View.OnClickListener {
 
     private PullToRefreshScrollView scrollView;
     private HeadBannerView headBannerView;//头部广告位的自定义组合布局
     private FirstPageNewPublishView firstPageNewPublishView;//首页的最新揭晓的自定义组合布局
     private GridView gv_Recommend;
     private ReCommendGridViewAdapter adapter;
+    private ImageView iv_Search;//首页的搜索
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -64,6 +67,9 @@ public class FirstPageFragment extends Fragment implements NetUtils.RequestCallC
         gv_Recommend = (GridView) view.findViewById(R.id.gv_recommend);
         adapter = new ReCommendGridViewAdapter(getActivity());
         gv_Recommend.setAdapter(adapter);
+
+        iv_Search = (ImageView) view.findViewById(R.id.iv_search);
+        iv_Search.setOnClickListener(this);
     }
 
     /**
@@ -131,5 +137,15 @@ public class FirstPageFragment extends Fragment implements NetUtils.RequestCallC
     @Override
     public void onRefresh(PullToRefreshBase refreshView) {
         initDatas();
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.iv_search:
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 }

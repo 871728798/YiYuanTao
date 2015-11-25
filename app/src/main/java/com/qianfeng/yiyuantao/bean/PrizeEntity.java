@@ -6,8 +6,8 @@ package com.qianfeng.yiyuantao.bean;
  */
 public class PrizeEntity {
 
-    private int count_buyed;
-    private int category_id;
+    private int count_buyed;//已经购买的数量
+    private int category_id;//商品的类型（比如十元专区）
     private String description;
     private int goods_id;
     private int level;

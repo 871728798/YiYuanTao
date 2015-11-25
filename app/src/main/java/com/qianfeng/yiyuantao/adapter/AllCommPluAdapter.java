@@ -19,7 +19,7 @@ import com.qianfeng.yiyuantao.util.NetUtils;
 public class AllCommPluAdapter extends ABSBaseAdapter2<PrizeEntity>{
     Context context;
     public AllCommPluAdapter(Context context) {
-        super(context,  R.layout.item_lv_allcom);
+        super(context,  R.layout.item_lv_allcomm);
         this.context = context;
     }
 

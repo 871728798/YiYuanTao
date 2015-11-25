@@ -23,7 +23,7 @@
         android:layout_weight="1"
         android:orientation="horizontal">
         <ScrollView
-            android:layout_width="100dp"
+            android:layout_width="90dp"
             android:layout_height="match_parent">
             <RadioGroup
                 android:id="@+id/rg_all_commodity"

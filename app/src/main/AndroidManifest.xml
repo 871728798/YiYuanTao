@@ -22,6 +22,7 @@
         <activity android:name=".activity.PrizeDetailActivity"></activity>
         <activity android:name=".activity.SearchActivity"></activity>
         <activity android:name=".activity.SearchResultActivity"></activity>
+        <activity android:name=".activity.RegisterActivity"></activity>
     </application>
 
 </manifest>

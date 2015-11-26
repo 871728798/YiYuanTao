@@ -30,7 +30,7 @@
             android:orientation="vertical">
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
+                android:layout_height="200dp"
                 android:background="@color/top_bg_color">
                 <ImageView
                     android:id="@+id/iv_id"
@@ -64,6 +64,75 @@
                 android:layout_width="match_parent"
                 android:layout_height="15dp"
                 android:background="#55938e8e"/>
+            <Button
+                android:id="@+id/bt_zjremeb"
+                style="@style/mimecenterbt"
+                android:drawableLeft="@mipmap/ico_user_menu_bingo_log"
+                android:text="   中奖记录">
+            </Button>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#d4cbcb"/>
+            <Button
+                android:id="@+id/bt_dbremeb"
+                style="@style/mimecenterbt"
+                android:drawableLeft="@mipmap/ico_user_menu_buy_log"
+                android:text="   夺宝记录">
+
+            </Button>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#d4cbcb"/>
+            <Button
+                android:id="@+id/bt_showre"
+                style="@style/mimecenterbt"
+                android:drawableLeft="@mipmap/ico_user_menu_show_prize"
+                android:text="   我的晒单">
+
+            </Button>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#d4cbcb"/>
+            <Button
+                android:id="@+id/bt_address"
+                style="@style/mimecenterbt"
+                android:drawableLeft="@mipmap/ico_user_menu_address"
+                android:text="   收货地址">
+
+            </Button>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:background="#55938e8e"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@color/tv_rl_commodity_color">
+                <Button
+                    android:id="@+id/bt_message_mine"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/tv_rl_commodity_color"
+                    android:layout_margin="15dp"
+                    android:text="消息"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/ico_user_menu_message"/>
+                <Button
+                    android:id="@+id/bt_service_mine"
+                    android:background="@color/tv_rl_commodity_color"
+                    android:layout_margin="15dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="客服"
+                    android:drawableTop="@mipmap/ico_user_menu_customer_service_center"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
         </LinearLayout>
 
     </ScrollView>

@@ -1,5 +1,6 @@
 package com.qianfeng.yiyuantao.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +14,8 @@ import android.widget.Toast;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.qianfeng.yiyuantao.R;
+import com.qianfeng.yiyuantao.activity.PrizeDetailActivity;
+import com.qianfeng.yiyuantao.adapter.AbsRecyclerAdapter;
 import com.qianfeng.yiyuantao.adapter.ShopCarLikeAdapter;
 import com.qianfeng.yiyuantao.bean.PrizeEntity;
 import com.qianfeng.yiyuantao.util.Constants;
@@ -24,7 +27,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2015/11/21 0021.
  */
-public class ShoppingCartFragment extends Fragment implements NetUtils.RequestCallCack {
+public class ShoppingCartFragment extends Fragment implements NetUtils.RequestCallCack, AbsRecyclerAdapter.OnItemClickListener {
     private RecyclerView rv;
     private ShopCarLikeAdapter adapter;
     private Button bt_imd_shoppcar;
@@ -49,6 +52,7 @@ public class ShoppingCartFragment extends Fragment implements NetUtils.RequestCa
         rv.setLayoutManager(linearLayoutManager);
         adapter =new  ShopCarLikeAdapter(getActivity(),R.layout.shopcarlike_layout);
         rv.setAdapter(adapter);
+        adapter.setOnItemClickListener(this);//对recycleview的item点击事件监听
         /**
          * 对“马上夺宝”按钮设置监听
          */
@@ -68,5 +72,11 @@ public class ShoppingCartFragment extends Fragment implements NetUtils.RequestCa
 
     @Override
     public void onFailure(HttpException e, String s) {
+    }
+
+    @Override
+    public void onItemClick(View v, int position) {
+        Intent intent = new Intent(getActivity(), PrizeDetailActivity.class);
+        startActivity(intent);
     }
 }

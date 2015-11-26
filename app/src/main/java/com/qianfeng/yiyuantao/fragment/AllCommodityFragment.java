@@ -1,10 +1,12 @@
 package com.qianfeng.yiyuantao.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -15,6 +17,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.qianfeng.yiyuantao.R;
+import com.qianfeng.yiyuantao.activity.PrizeDetailActivity;
 import com.qianfeng.yiyuantao.adapter.AllCommPluAdapter;
 import com.qianfeng.yiyuantao.bean.PrizeEntity;
 import com.qianfeng.yiyuantao.util.Constants;
@@ -57,6 +60,13 @@ public class AllCommodityFragment extends Fragment implements RadioGroup.OnCheck
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
                 NetUtils.getDataFromNet(AllCommodityFragment.this, url);
+            }
+        });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(), PrizeDetailActivity.class);
+                startActivity(intent);
             }
         });
     }

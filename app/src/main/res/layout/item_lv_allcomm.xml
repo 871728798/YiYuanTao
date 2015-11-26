@@ -22,14 +22,14 @@
             <TextView
                 android:id="@+id/tv_peroid_allcomm"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10sp"
+                android:layout_height="30dp"
+                android:textSize="@dimen/tv_size_allitem"
                 android:layout_marginTop="10dp" />
             <TextView
                 android:id="@+id/tv_title_comm"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10sp"
+                android:layout_height="30dp"
+                android:textSize="@dimen/tv_size_allitem"
                 android:textStyle="bold"
                 android:layout_marginTop="10dp"
                 android:layout_toRightOf="@id/tv_peroid_allcomm"
@@ -50,7 +50,7 @@
                     android:id="@+id/tv_price_allcomm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="10sp" />
+                    android:textSize="@dimen/tv_size_allitem" />
                 <ProgressBar
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
@@ -61,7 +61,7 @@
                     android:id="@+id/tv_count_else_allcomm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="10sp" />
+                    android:textSize="@dimen/tv_size_allitem" />
 
             </LinearLayout>
 

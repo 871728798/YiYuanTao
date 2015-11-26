@@ -36,7 +36,6 @@
             android:text="@string/shopping_cart_null"/>
         <Button
             android:id="@+id/bt_imd_shoppcar"
-            android:onClick="imdget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

@@ -49,6 +49,15 @@ public class ShoppingCartFragment extends Fragment implements NetUtils.RequestCa
         rv.setLayoutManager(linearLayoutManager);
         adapter =new  ShopCarLikeAdapter(getActivity(),R.layout.shopcarlike_layout);
         rv.setAdapter(adapter);
+        /**
+         * 对“马上夺宝”按钮设置监听
+         */
+        bt_imd_shoppcar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(),"夺宝。。",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -59,11 +68,5 @@ public class ShoppingCartFragment extends Fragment implements NetUtils.RequestCa
 
     @Override
     public void onFailure(HttpException e, String s) {
-    }
-    /**
-     * 对“马上夺宝”按钮设置监听
-     */
-    private void imdget(View view){
-
     }
 }

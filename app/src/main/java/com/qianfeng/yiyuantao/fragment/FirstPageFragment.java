@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
@@ -16,6 +18,8 @@ import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.qianfeng.yiyuantao.R;
 import com.qianfeng.yiyuantao.activity.SearchActivity;
+import com.qianfeng.yiyuantao.activity.SearchResultActivity;
+import com.qianfeng.yiyuantao.activity.ShowActivity;
 import com.qianfeng.yiyuantao.adapter.ReCommendGridViewAdapter;
 import com.qianfeng.yiyuantao.app.MyApp;
 import com.qianfeng.yiyuantao.bean.FirstPageEntity;
@@ -42,6 +46,7 @@ public class FirstPageFragment extends Fragment implements NetUtils.RequestCallC
     private GridView gv_Recommend;
     private ReCommendGridViewAdapter adapter;
     private ImageView iv_Search;//首页的搜索
+    private RadioGroup menu_Group;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -70,6 +75,11 @@ public class FirstPageFragment extends Fragment implements NetUtils.RequestCallC
 
         iv_Search = (ImageView) view.findViewById(R.id.iv_search);
         iv_Search.setOnClickListener(this);
+
+        menu_Group = (RadioGroup) view.findViewById(R.id.first_page_menu_group);
+        for(int i = 0; i < menu_Group.getChildCount(); i++){
+            menu_Group.getChildAt(i).setOnClickListener(this);
+        }
     }
 
     /**
@@ -100,18 +110,17 @@ public class FirstPageFragment extends Fragment implements NetUtils.RequestCallC
      */
     @Override
     public void onSuccess(ResponseInfo<String> responseInfo) {
+        //广告位banner
         FirstPageEntity firstPageEntity = JsonUtils.parstFirstPageDatas(responseInfo.result);
         FirstPageEntity.Banner[] banner = firstPageEntity.getBanner();
         initHeadBanner(banner);
-
+        //最新揭晓
         NewPublishEntity[] lottery = firstPageEntity.getLottery();
-//        Log.i("TAG", Arrays.asList(lottery).toString());
         firstPageNewPublishView.setDatas(Arrays.asList(lottery));
-
+        //人气推荐
         PrizeEntity[] prize_list = firstPageEntity.getPrize_list();
-
         adapter.setDatas(Arrays.asList(prize_list));
-
+        //刷新完成
         scrollView.onRefreshComplete();
     }
     /**
@@ -145,6 +154,19 @@ public class FirstPageFragment extends Fragment implements NetUtils.RequestCallC
             case R.id.iv_search:
                 Intent intent = new Intent(getActivity(), SearchActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.menu_tenyuan://十元专区
+                Intent intent2 = new Intent(getActivity(), SearchResultActivity.class);
+                intent2.putExtra("type", "十元专区");
+                startActivity(intent2);
+                break;
+            case R.id.menu_new_activity://最新活动
+                break;
+            case R.id.menu_show://晒单
+                Intent intent3 = new Intent(getActivity(), ShowActivity.class);
+                startActivity(intent3);
+                break;
+            case R.id.menu_help://常见问题
                 break;
         }
     }

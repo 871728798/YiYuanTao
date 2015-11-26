@@ -45,6 +45,7 @@ public class SearchActivity extends Activity implements View.OnClickListener, Te
                 }else{
                     Intent intent = new Intent(this, SearchResultActivity.class);
                     intent.putExtra("key", editText.getText().toString());
+                    intent.putExtra("type", "奖品搜索");
                     startActivity(intent);
                 }
                 break;

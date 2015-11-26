@@ -33,5 +33,13 @@ public class ShareUtils {
         editor.putInt(key, value);
         editor.commit();
     }
+    public static boolean getIBoolean(String key){
+        return sharedPreferences.getBoolean(key, true);
+    }
+
+    public static void putBoolean(String key, boolean value) {
+        editor.putBoolean(key, value);
+        editor.commit();
+    }
 
 }

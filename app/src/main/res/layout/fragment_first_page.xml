@@ -52,7 +52,7 @@
                 android:id="@+id/first_page_menu_group"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:orientation="horizontal">
                 <RadioButton
                     android:id="@+id/menu_tenyuan"

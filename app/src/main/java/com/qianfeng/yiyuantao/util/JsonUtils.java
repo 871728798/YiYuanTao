@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSON;
 import com.qianfeng.yiyuantao.bean.FirstPageEntity;
 import com.qianfeng.yiyuantao.bean.NewPublishEntity;
 import com.qianfeng.yiyuantao.bean.PrizeEntity;
+import com.qianfeng.yiyuantao.bean.ShowPrizeEntity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -96,6 +97,22 @@ public class JsonUtils {
             if (code == 0){
                 JSONArray array = object.getJSONArray("data");
                 List<PrizeEntity> datas = JSON.parseArray(array.toString(), PrizeEntity.class);
+                return datas;
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static  List<ShowPrizeEntity> parseShowDatas(String json) {
+        try {
+            JSONObject object = new JSONObject(json);
+            int code = object.getInt("code");
+            if(code == 0){
+                object = object.getJSONObject("data");
+                JSONArray array = object.getJSONArray("data1");
+                List<ShowPrizeEntity> datas = JSON.parseArray(array.toString(), ShowPrizeEntity.class);
                 return datas;
             }
         } catch (JSONException e) {

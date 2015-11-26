@@ -77,6 +77,16 @@ public interface Constants {
          * 购物车：猜你喜欢
          */
         String SHOPPING_URL = "http://api.zhuquzhou.com/prize/prize_list?page_size=10&page_no=1&order_by=level&desc=1&android_id=b7106f9de9c59ddb&platform=android&v=1.1.1&device_name=nox&s=5708&nettype=wifi&n=yyt_android&app_version=11&sim=false&device_id=352284040537676&mac=28:D2:44:47:0D:10&os_version=4.4.2&";
+
+        /**
+         *首页十元专场
+         **/
+        String TENYUAN_URL = "http://api.zhuquzhou.com/prize/prize_list?category_id=14&page_size=20&page_no=1&android_id=b7106f9de9c59ddb&platform=android&v=1.1.1&device_name=nox&s=5708&nettype=wifi&n=yyt_android&app_version=11&sim=false&device_id=352284040537676&mac=28:D2:44:47:0D:10&os_version=4.4.2&";
+
+        /**
+         首页晒单
+         **/
+        String SHOW_PRIZE_URL = "http://api.zhuquzhou.com/show_prize/show_prize_by_index?page_no=1&android_id=b7106f9de9c59ddb&platform=android&v=1.1.1&device_name=nox&s=5708&nettype=wifi&n=yyt_android&app_version=11&sim=false&device_id=352284040537676&mac=28:D2:44:47:0D:10&os_version=4.4.2&";
     }
 
     interface KEY {

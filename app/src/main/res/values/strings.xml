@@ -42,4 +42,5 @@
     <string name="QQregist">QQ登录</string>
     <string name="WXregist">微信登录</string>
     <string name="WBregist">微博登录</string>
+    <string name="show">奖品晒单</string>
 </resources>

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.lidroid.xutils.exception.HttpException;
@@ -28,20 +29,31 @@ public class SearchResultActivity  extends Activity implements View.OnClickListe
     private PullToRefreshListView listView;
     private ImageView iv_back,  iv_shopping_cart;
     private SearchResultListAdapter adapter;
+    private String url;
+    private TextView tv_type;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
         Intent intent = getIntent();
-        String key = intent.getStringExtra("key");
-        if(key != null){
+        String type = intent.getStringExtra("type");
+        if(type != null){
+            if("奖品搜索".equals(type)){
+                String key = intent.getStringExtra("key");
+                if(key != null){
+                    url = String.format(Constants.URL.SEARCH_URL, key);
+                }
+            }else if("十元专区".equals(type)){
+                url = Constants.URL.TENYUAN_URL;
+            }
             initView();
-            initData(key);
+            tv_type.setText(type);
+            initData();
         }
+
     }
 
-    private void initData(String key) {
-        String url = String.format(Constants.URL.SEARCH_URL, key);
+    private void initData() {
         NetUtils.getDataFromNet(this, url);
     }
 
@@ -54,6 +66,8 @@ public class SearchResultActivity  extends Activity implements View.OnClickListe
         listView = (PullToRefreshListView) findViewById(R.id.lv_search_result);
         adapter = new SearchResultListAdapter(this);
         listView.setAdapter(adapter);
+
+        tv_type = (TextView) findViewById(R.id.tv_type);
     }
 
     @Override

@@ -23,6 +23,8 @@
         <activity android:name=".activity.SearchActivity"></activity>
         <activity android:name=".activity.SearchResultActivity"></activity>
         <activity android:name=".activity.RegisterActivity"></activity>
+        <activity android:name=".activity.ShowActivity"></activity>
+        <activity android:name=".activity.GuideActivity"></activity>
     </application>
 
 </manifest>

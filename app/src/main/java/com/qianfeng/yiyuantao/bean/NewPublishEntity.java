@@ -1,10 +1,12 @@
 package com.qianfeng.yiyuantao.bean;
 
 
+import java.io.Serializable;
+
 /**
  * Created by Lee on 2015/11/23.
  */
-public class NewPublishEntity {
+public class NewPublishEntity{
     /* {
          "count": 4,
              "user_id": 116258,

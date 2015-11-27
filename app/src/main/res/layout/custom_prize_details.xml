@@ -3,42 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:id="@+id/rl_id"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/btn_bg_8"
-            android:text="已揭晓"
-            android:textColor="#fff"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/peroid_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_toRightOf="@+id/btn_tv"
-            android:text="第51期"
-
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@+id/peroid_tv"
-            android:text="title"
-            android:textSize="20sp" />
-
-    </RelativeLayout>
 
 
     <RelativeLayout

@@ -23,6 +23,8 @@ import com.qianfeng.yiyuantao.util.Constants;
 import com.qianfeng.yiyuantao.util.JsonUtils;
 import com.qianfeng.yiyuantao.util.NetUtils;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,6 +34,7 @@ public class NewPublishFragment extends Fragment implements NetUtils.RequestCall
     private static final String TAG = "print";
     private PullToRefreshListView pr_lv;
     private NewPublishAdapter newPublishAdapter;
+    private List<NewPublishEntity> datas ;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_new_publish, container, false);
@@ -47,6 +50,7 @@ public class NewPublishFragment extends Fragment implements NetUtils.RequestCall
     private void init(View v) {
         pr_lv = (PullToRefreshListView) v.findViewById(R.id.pr_lv);
         newPublishAdapter = new NewPublishAdapter(getActivity());
+        newPublishAdapter.notifyDataSetChanged();
         pr_lv.setAdapter(newPublishAdapter);
         pr_lv.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
         pr_lv.setOnRefreshListener(this);
@@ -65,7 +69,7 @@ public class NewPublishFragment extends Fragment implements NetUtils.RequestCall
     @Override
     public void onSuccess(ResponseInfo<String> responseInfo) {
         final String result = responseInfo.result;
-        List<NewPublishEntity> datas = JsonUtils.getNewPublishDatas(result);
+        datas = JsonUtils.getNewPublishDatas(result);
         newPublishAdapter.setDatas(datas);
         pr_lv.onRefreshComplete();
 
@@ -105,6 +109,9 @@ public class NewPublishFragment extends Fragment implements NetUtils.RequestCall
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent(getActivity(), PrizeDetailActivity.class);
+        Log.d(TAG,position + "----------" + datas.get(position).getPrize_detail().getPrize_id());
+        intent.putExtra("prize_id",datas.get(position-1).getPrize_detail().getPrize_id() + "");
+
         startActivity(intent);
     }
 }

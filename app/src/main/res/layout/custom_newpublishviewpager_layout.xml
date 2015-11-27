@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.qianfeng.yiyuantao.custom.MyViewPager
+        android:id="@+id/vp_banner"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        />
+    <com.qianfeng.yiyuantao.custom.ImgNavView
+        android:id="@+id/img_nav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="10dp"
+        app:checkedimg="@mipmap/page_now"
+        app:uncheckedimg="@mipmap/page"
+        />
+</FrameLayout>

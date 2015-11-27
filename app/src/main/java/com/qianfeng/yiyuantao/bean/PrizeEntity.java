@@ -1,10 +1,12 @@
 package com.qianfeng.yiyuantao.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 2015/11/23 0023.
  * 商品信息的实体类
  */
-public class PrizeEntity {
+public class PrizeEntity{
 
     private int count_buyed;//已经购买的数量
     private int category_id;//商品的类型（比如十元专区）

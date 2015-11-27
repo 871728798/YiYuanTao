@@ -3,10 +3,13 @@ package com.qianfeng.yiyuantao.util;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
+import com.qianfeng.yiyuantao.bean.CommentEntity;
 import com.qianfeng.yiyuantao.bean.FirstPageEntity;
 import com.qianfeng.yiyuantao.bean.NewPublishEntity;
+import com.qianfeng.yiyuantao.bean.PrizeDetailEntity;
 import com.qianfeng.yiyuantao.bean.PrizeEntity;
 import com.qianfeng.yiyuantao.bean.ShowPrizeEntity;
+import com.qianfeng.yiyuantao.bean.ViewPagerEntity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -120,6 +123,44 @@ public class JsonUtils {
         }
         return null;
     }
+
+    public static List<CommentEntity> getCommentEntiyDatas(String json) {
+        JSONObject object = null;
+        try {
+            object = new JSONObject(json);
+            JSONArray array = object.getJSONArray("data");
+            List<CommentEntity> commentEntities = JSON.parseArray(array.toString(), CommentEntity.class);
+            return commentEntities;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static ViewPagerEntity getViewPagerEntityDatas(String json) {
+        try {
+            JSONObject object = new JSONObject(json);
+            object = object.getJSONObject("data");
+            ViewPagerEntity viewPagerEntity = JSON.parseObject(object.toString(), ViewPagerEntity.class);
+            return viewPagerEntity;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static PrizeDetailEntity getPrizeDetailEntityDatas(String json) {
+        try {
+            JSONObject object = new JSONObject(json);
+            object = object.getJSONObject("data");
+            PrizeDetailEntity prizeDetailEntity = JSON.parseObject(object.toString(), PrizeDetailEntity.class);
+            return prizeDetailEntity;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }
 /**
  * for (int i = 0;i<arr1.length();i++){

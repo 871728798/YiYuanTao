@@ -1,5 +1,7 @@
 package com.qianfeng.yiyuantao.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by Lee on 2015/11/25.
  */

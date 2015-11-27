@@ -68,9 +68,9 @@ public abstract class ABSBaseAdapter3<T> extends BaseAdapter {
         T data = datas.get(position);
         Class c = data.getClass();
         try {
-            Field field = c.getDeclaredField("count");
+            Field field = c.getDeclaredField("remain_sec");
             field.setAccessible(true);
-            if (field.getInt(data) == -1){
+            if (field.getInt(data) != 0){
                 return 1;
             }
 

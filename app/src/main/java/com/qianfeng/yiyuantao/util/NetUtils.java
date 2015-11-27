@@ -10,6 +10,13 @@ import com.lidroid.xutils.http.client.HttpRequest;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.qianfeng.yiyuantao.app.MyApp;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+
+import java.io.IOException;
 import java.lang.String;
 
 /**
@@ -19,11 +26,10 @@ public class NetUtils {
 
     /**
      * 请求网络网络数据
-     *
-     * @param requestCallBack 网络数据返回时回调的接口
+     *  @param requestCallBack 网络数据返回时回调的接口
      * @param url
      */
-    public static void getDataFromNet(final RequestCallCack requestCallBack, String url) {
+    public static String getDataFromNet(final RequestCallCack requestCallBack, String url) {
         HttpUtils httpUtils = new HttpUtils();
         httpUtils.send(HttpRequest.HttpMethod.GET, url, new com.lidroid.xutils.http.callback.RequestCallBack<String>() {
             @Override
@@ -36,6 +42,7 @@ public class NetUtils {
                 requestCallBack.onFailure(e, s);
             }
         });
+        return url;
     }
 
     public static interface RequestCallCack {
@@ -53,5 +60,24 @@ public class NetUtils {
                 .bitmapConfig(Bitmap.Config.ARGB_8888);
         DisplayImageOptions options = builder.build();
         MyApp.imageLoader.displayImage(imgUrl, iv, options);
+    }
+
+    /**
+     * 下载Json数据
+     * @param url
+     * @return
+     */
+    public static String getJsonDatas(String url){
+        HttpClient client = new DefaultHttpClient();
+        HttpGet get = new HttpGet(url);
+        try {
+            HttpResponse response = client.execute(get);
+            if (response.getStatusLine().getStatusCode() == 200){
+                return EntityUtils.toString(response.getEntity());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

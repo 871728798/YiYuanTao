@@ -57,13 +57,24 @@
         android:src="@drawable/ico_time" />
 
     <TextView
-        android:id="@+id/tv_publishing"
+        android:id="@+id/tv_publish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_price"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="15dp"
         android:layout_toRightOf="@+id/iv_time"
+        android:text="揭晓倒计时:"
+        android:textColor="@color/top_bg_color"
+        android:textSize="20sp" />
+    <TextView
+        android:id="@+id/tv_publishing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_price"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/tv_publish"
         android:text="揭晓倒计时"
         android:textColor="@color/top_bg_color"
         android:textSize="20sp" />

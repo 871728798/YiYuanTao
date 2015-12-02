@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -36,20 +39,20 @@ public class SearchActivity extends Activity implements View.OnClickListener, Te
         textView.setOnClickListener(this);
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.tv_exit:
-                if(isNull){
-                    this.finish();
-                }else{
-                    Intent intent = new Intent(this, SearchResultActivity.class);
-                    intent.putExtra("key", editText.getText().toString());
-                    intent.putExtra("type", "奖品搜索");
-                    startActivity(intent);
-                }
-                break;
-        }
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()){
+                case R.id.tv_exit:
+                    if(isNull){
+                        this.finish();
+                    }else{
+                        Intent intent = new Intent(this, SearchResultActivity.class);
+                        intent.putExtra("key", editText.getText().toString());
+                        intent.putExtra("type", "奖品搜索");
+                        startActivity(intent);
+                    }
+                    break;
+            }
     }
 
     @Override
@@ -73,4 +76,6 @@ public class SearchActivity extends Activity implements View.OnClickListener, Te
         }
 
     }
+
+
 }

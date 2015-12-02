@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2015/11/25 0025.
  */
-public class SearchResultActivity  extends Activity implements View.OnClickListener, NetUtils.RequestCallCack {
+public class SearchResultActivity  extends Activity implements View.OnClickListener, NetUtils.RequestCallCack, AdapterView.OnItemClickListener {
 
     private PullToRefreshListView listView;
     private ImageView iv_back,  iv_shopping_cart;
@@ -64,6 +64,7 @@ public class SearchResultActivity  extends Activity implements View.OnClickListe
         iv_shopping_cart.setOnClickListener(this);
 
         listView = (PullToRefreshListView) findViewById(R.id.lv_search_result);
+        listView.setOnItemClickListener(this);
         adapter = new SearchResultListAdapter(this);
         listView.setAdapter(adapter);
 
@@ -94,4 +95,8 @@ public class SearchResultActivity  extends Activity implements View.OnClickListe
 
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+    }
 }

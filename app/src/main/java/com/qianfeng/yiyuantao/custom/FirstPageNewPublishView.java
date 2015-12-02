@@ -1,6 +1,7 @@
 package com.qianfeng.yiyuantao.custom;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.AttributeSet;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.qianfeng.yiyuantao.R;
+import com.qianfeng.yiyuantao.activity.PrizeDetailActivity;
 import com.qianfeng.yiyuantao.adapter.ABSBaseAdapter2;
 import com.qianfeng.yiyuantao.bean.NewPublishEntity;
 import com.qianfeng.yiyuantao.util.NetUtils;
@@ -63,7 +65,7 @@ public class FirstPageNewPublishView extends RelativeLayout {
         }
 
         @Override
-        public void bindDatas(View view, ViewHolder viewHolder, NewPublishEntity data) {
+        public void bindDatas(View view, ViewHolder viewHolder, final NewPublishEntity data) {
             ImageView iv = (ImageView) viewHolder.getView(R.id.iv_id);
             NetUtils.disImageView(data.getPrize_detail().getThumb_nail(), iv, R.drawable.loading_2, R.drawable.loading_2);
 
@@ -89,7 +91,10 @@ public class FirstPageNewPublishView extends RelativeLayout {
             view.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getContext(), "点击了最新揭晓的item", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getContext(), PrizeDetailActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("prize_id", data.getPrize_id()+"");
+                    getContext().startActivity(intent);
                 }
             });
 

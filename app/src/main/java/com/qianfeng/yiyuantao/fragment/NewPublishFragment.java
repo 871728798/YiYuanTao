@@ -109,7 +109,7 @@ public class NewPublishFragment extends Fragment implements NetUtils.RequestCall
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent(getActivity(), PrizeDetailActivity.class);
-        Log.d(TAG,position + "----------" + datas.get(position).getPrize_detail().getPrize_id());
+//        Log.d(TAG,position + "----------" + datas.get(position).getPrize_detail().getPrize_id());
         intent.putExtra("prize_id",datas.get(position-1).getPrize_detail().getPrize_id() + "");
 
         startActivity(intent);

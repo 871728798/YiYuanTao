@@ -1,6 +1,8 @@
 package com.qianfeng.yiyuantao.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.qianfeng.yiyuantao.R;
+import com.qianfeng.yiyuantao.activity.PrizeDetailActivity;
 import com.qianfeng.yiyuantao.bean.PrizeEntity;
 import com.qianfeng.yiyuantao.util.NetUtils;
 
@@ -26,7 +29,7 @@ public class ReCommendGridViewAdapter extends ABSBaseAdapter2<PrizeEntity>{
     }
 
     @Override
-    public void bindDatas(View view, ViewHolder viewHolder, PrizeEntity data) {
+    public void bindDatas(View view, ViewHolder viewHolder, final PrizeEntity data) {
         ImageView iv = (ImageView) viewHolder.getView(R.id.iv_id);
         NetUtils.disImageView(data.getThumb_nail(), iv, R.drawable.loading_2, R.drawable.loading_2);
 
@@ -49,7 +52,10 @@ public class ReCommendGridViewAdapter extends ABSBaseAdapter2<PrizeEntity>{
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "点击了GridView的item", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(context, PrizeDetailActivity.class);
+//                intent.putExtra("prize_id", data.getPrize_id()+"");
+//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                context.startActivity(intent);
             }
         });
     }

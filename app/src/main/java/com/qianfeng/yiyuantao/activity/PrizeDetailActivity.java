@@ -68,7 +68,7 @@ public class PrizeDetailActivity extends Activity implements View.OnClickListene
         prize_id = intent.getStringExtra("prize_id");
         URL1 = "http://api.zhuquzhou.com/prize/prize_detail?prize_id=" + prize_id + "&android_id=d108148ee86fe036&platform=android&v=1.1.1&device_name=nox&s=5708&nettype=wifi&n=yyt_android&app_version=11&sim=false&device_id=352284044600645&mac=68:F7:28:F0:46:16&os_version=4.4.2&user_id=153825&";
         URL3 = "http://api.zhuquzhou.com/buy/buy_history_by_prize?prize_id=" + prize_id + "&page_no=1&android_id=d108148ee86fe036&platform=android&v=1.1.1&device_name=nox&s=5708&nettype=wifi&n=yyt_android&app_version=11&sim=false&device_id=352284044600645&mac=68:F7:28:F0:46:16&os_version=4.4.2&user_id=153825&";
-        //Log.d(TAG, "商品id" + prize_id);
+//        Log.d(TAG, "商品id" + prize_id);
         //prizeDetailView.setPrizeId(prize_id);
 
     }

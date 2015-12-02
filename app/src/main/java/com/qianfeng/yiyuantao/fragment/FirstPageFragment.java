@@ -128,7 +128,8 @@ public class FirstPageFragment extends Fragment implements NetUtils.RequestCallC
      */
     @Override
     public void onFailure(HttpException e, String s) {
-
+        scrollView.onRefreshComplete();
+        Toast.makeText(getActivity(),"刷新失败。。。",Toast.LENGTH_SHORT).show();
     }
 
     /**
